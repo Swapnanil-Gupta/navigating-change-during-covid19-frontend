@@ -2,29 +2,35 @@ import "@/global.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import LandingPage from "@/pages/LandingPage";
-import GlobalLayout from "@/layouts/GlobalLayout";
-import AppLayout from "@/layouts/AppLayout";
-import HomePage from "@/pages/HomePage";
+import { QueryClient, QueryClientProvider } from "react-query";
+import LandingPage from "@/pages/Landing";
+import AppLayout from "@/layouts/App";
+import HomePage from "@/pages/Home";
+import BusinessEstablishmentsPage from "./pages/BusinessEstablishments";
 
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: false,
+    },
+  },
+});
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <GlobalLayout />,
+    path: "",
+    element: <LandingPage />,
+  },
+  {
+    path: "app",
+    element: <AppLayout />,
     children: [
       {
         path: "",
-        element: <LandingPage />,
+        element: <HomePage />,
       },
       {
-        path: "app",
-        element: <AppLayout />,
-        children: [
-          {
-            path: "",
-            element: <HomePage />,
-          },
-        ],
+        path: "business-establishments",
+        element: <BusinessEstablishmentsPage />,
       },
     ],
   },
@@ -32,6 +38,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   </React.StrictMode>
 );
