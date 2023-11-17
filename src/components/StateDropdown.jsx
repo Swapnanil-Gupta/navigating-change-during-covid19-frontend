@@ -13,7 +13,7 @@ export default function StateDropdown({ value, onValueChange }) {
   const { data, isLoading, isError, error } = useStates();
 
   return (
-    <div className="flex flex-col gap-y-2">
+    <div className="flex items-center gap-x-4">
       <Label className="text-base font-semibold" htmlFor="state">
         State
       </Label>

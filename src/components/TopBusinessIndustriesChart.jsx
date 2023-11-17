@@ -6,7 +6,7 @@ const chartOptions = {
   // title: "Top 5 Industries Trend",
 };
 
-export default function TopBusinessIndustriesTrend({
+export default function TopBusinessIndustriesChart({
   stateCode,
   startYear,
   endYear,
@@ -19,9 +19,7 @@ export default function TopBusinessIndustriesTrend({
 
   return (
     <div>
-      <h3 className="text-2xl font-semibold">
-        Top 5 Business Industries Trend
-      </h3>
+      <h3 className="text-2xl font-semibold">Top 5 Business Industries</h3>
       {isLoading && <Loader className="mx-auto my-8 h-8 w-8" />}
       {!isLoading && !isError && (
         <Chart
