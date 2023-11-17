@@ -4,9 +4,11 @@ import TimeRangeSlider from "@/components/TimeRangeSlider";
 import PercentBusinessEstablishmentsCharts from "@/components/PercentBusinessEstablishmentsCharts";
 import TopBusinessIndustriesChart from "@/components/TopBusinessIndustriesChart";
 import ViewWindowSlider from "@/components/ViewWindowSlider";
+import BusinessIndustrySelector from "@/components/BusinessIndustrySelector";
 
 const defaults = {
   stateCode: 1,
+  excludedIndustries: [],
   startYear: 2010,
   endYear: 2021,
   minYear: 2010,
@@ -17,6 +19,9 @@ const defaults = {
 
 export default function BusinessEstablishmentsPage() {
   const [selectedState, setSelectedState] = useState(defaults.stateCode);
+  const [excludedIndustries, setExcludedIndustries] = useState(
+    defaults.excludedIndustries
+  );
   const [startYear, setStartYear] = useState(defaults.startYear);
   const [endYear, setEndYear] = useState(defaults.endYear);
   const [viewWindowMin, setViewWindowMin] = useState(defaults.viewWindowMin);
@@ -42,33 +47,47 @@ export default function BusinessEstablishmentsPage() {
       </p>
       <div className="flex flex-col gap-y-2">
         <h3 className="text-2xl font-semibold">Controls</h3>
-        <div className="flex flex-col gap-y-4 border-2 p-4 rounded-lg">
-          <StateDropdown
-            value={selectedState}
-            onValueChange={(val) => setSelectedState(val)}
-          />
-          <TimeRangeSlider
-            minYear={defaults.minYear}
-            maxYear={defaults.maxYear}
-            startYear={startYear}
-            endYear={endYear}
-            onValueCommit={([start, end]) => {
-              setStartYear(start);
-              setEndYear(end);
+        <div className="grid grid-cols-2 gap-x-8 border-2 p-4 rounded-lg">
+          <div className="flex flex-grow flex-col gap-y-4">
+            <StateDropdown
+              value={selectedState}
+              onValueChange={(val) => setSelectedState(val)}
+            />
+            <TimeRangeSlider
+              minYear={defaults.minYear}
+              maxYear={defaults.maxYear}
+              startYear={startYear}
+              endYear={endYear}
+              onValueCommit={([start, end]) => {
+                setStartYear(start);
+                setEndYear(end);
+              }}
+            />
+            <ViewWindowSlider
+              min={0.1}
+              max={100}
+              onValueCommit={([min, max]) => {
+                setViewWindowMin(min);
+                setViewWindowMax(max);
+              }}
+            />
+          </div>
+          <BusinessIndustrySelector
+            excludedIndustries={excludedIndustries}
+            onCheckedChange={(checked, industryCode) => {
+              setExcludedIndustries((i) =>
+                checked
+                  ? i.filter((v) => v !== industryCode)
+                  : i.concat(industryCode)
+              );
             }}
-          />
-          <ViewWindowSlider
-            min={0.1}
-            max={100}
-            onValueCommit={([min, max]) => {
-              setViewWindowMin(min);
-              setViewWindowMax(max);
-            }}
+            onReset={() => setExcludedIndustries([])}
           />
         </div>
       </div>
       <PercentBusinessEstablishmentsCharts
         stateCode={selectedState}
+        excludedIndustries={excludedIndustries}
         startYear={startYear}
         endYear={endYear}
         viewWindowMin={viewWindowMin}

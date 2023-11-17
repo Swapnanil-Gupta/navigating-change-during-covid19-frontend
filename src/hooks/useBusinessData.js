@@ -1,9 +1,14 @@
 import { useQuery } from "react-query";
 import axios from "@/lib/axios";
 
-export default function useBusinessData({ stateCode, startYear, endYear }) {
+export default function useBusinessData({
+  stateCode,
+  excludedIndustries,
+  startYear,
+  endYear,
+}) {
   const query = useQuery(
-    ["/business-data", stateCode, startYear, endYear],
+    ["/business-data", stateCode, excludedIndustries, startYear, endYear],
     async () => {
       try {
         const response = await axios.get("/business-data", {
@@ -11,6 +16,7 @@ export default function useBusinessData({ stateCode, startYear, endYear }) {
             stateCode,
             startYear,
             endYear,
+            excludedIndustries,
           },
         });
         return response.data;

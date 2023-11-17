@@ -20,7 +20,7 @@ export default function StateDropdown({ value, onValueChange }) {
       {isLoading && <Loader className="h-6 w-6" />}
       {!isLoading && !isError && (
         <Select value={value} onValueChange={onValueChange}>
-          <SelectTrigger id="state" className="w-48">
+          <SelectTrigger id="state" className="w-52">
             <SelectValue placeholder="Select a state" />
           </SelectTrigger>
           <SelectContent className="max-h-96">

@@ -33,7 +33,6 @@ export default function ViewWindowSlider({
         </Button>
       </div>
       <RangeSlider
-        className="max-w-xl"
         value={[start, end]}
         min={min}
         max={max}

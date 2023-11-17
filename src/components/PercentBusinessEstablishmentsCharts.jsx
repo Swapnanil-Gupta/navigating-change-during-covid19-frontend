@@ -4,6 +4,7 @@ import { Chart } from "react-google-charts";
 
 export default function PercentBusinessEstablishmentsCharts({
   stateCode,
+  excludedIndustries,
   startYear,
   endYear,
   viewWindowMin,
@@ -11,6 +12,7 @@ export default function PercentBusinessEstablishmentsCharts({
 }) {
   const { isLoading, isError, data, error } = useBusinessData({
     stateCode,
+    excludedIndustries,
     startYear,
     endYear,
   });

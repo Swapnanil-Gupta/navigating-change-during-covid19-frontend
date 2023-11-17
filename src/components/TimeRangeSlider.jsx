@@ -18,7 +18,6 @@ export default function TimeRangeSlider({
         <span className="font-semibold">Time Range</span>: {start} - {end}
       </p>
       <RangeSlider
-        className="max-w-lg"
         value={[start, end]}
         min={minYear}
         max={maxYear}

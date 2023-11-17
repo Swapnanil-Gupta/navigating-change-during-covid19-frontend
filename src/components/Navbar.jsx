@@ -5,7 +5,7 @@ export default function Navbar() {
   return (
     <header className="py-4 border-b-2 border-neutral-200">
       <div className="container flex items-center justify-between">
-        <ul className="flex gap-x-6 font-semibold">
+        <ul className="flex items-center gap-x-6 font-semibold">
           <li>
             <NavLink
               end
