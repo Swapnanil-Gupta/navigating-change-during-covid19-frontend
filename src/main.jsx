@@ -6,7 +6,8 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import LandingPage from "@/pages/Landing";
 import AppLayout from "@/layouts/App";
 import HomePage from "@/pages/Home";
-import BusinessEstablishmentsPage from "./pages/BusinessEstablishments";
+import BusinessEstablishments from "@/pages/BusinessEstablishments";
+import Emissions from "@/pages/Emissions";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -33,7 +34,11 @@ const router = createBrowserRouter([
       },
       {
         path: "business-establishments",
-        element: <BusinessEstablishmentsPage />,
+        element: <BusinessEstablishments />,
+      },
+      {
+        path: "emissions",
+        element: <Emissions />,
       },
     ],
   },

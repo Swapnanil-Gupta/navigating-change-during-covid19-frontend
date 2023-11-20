@@ -1,26 +1,26 @@
 import { useState } from "react";
 import StateDropdown from "@/components/StateDropdown";
 import TimeRangeSlider from "@/components/TimeRangeSlider";
-import PercentBusinessEstablishmentsCharts from "@/components/PercentBusinessEstablishmentsCharts";
-import TopBusinessIndustriesChart from "@/components/TopBusinessIndustriesChart";
+import PercentEmissionsChart from "@/components/PercentEmissionsChart";
+import TopEnergySectorsChart from "@/components/TopEnergySectorsChart";
 import ViewWindowSlider from "@/components/ViewWindowSlider";
-import BusinessIndustrySelector from "@/components/BusinessIndustrySelector";
+import EnergySectorSelector from "@/components/EnergySectorSelector";
 
 const defaults = {
   stateCode: 1,
-  excludedIndustries: [],
-  startYear: 2010,
+  excludedSectors: [],
+  startYear: 1976,
   endYear: 2021,
-  minYear: 2010,
+  minYear: 1976,
   maxYear: 2021,
   viewWindowMin: null,
   viewWindowMax: null,
 };
 
-export default function BusinessEstablishments() {
+export default function Emissions() {
   const [selectedState, setSelectedState] = useState(defaults.stateCode);
-  const [excludedIndustries, setExcludedIndustries] = useState(
-    defaults.excludedIndustries
+  const [excludedSectors, setExcludedSectors] = useState(
+    defaults.excludedSectors
   );
   const [startYear, setStartYear] = useState(defaults.startYear);
   const [endYear, setEndYear] = useState(defaults.endYear);
@@ -30,7 +30,7 @@ export default function BusinessEstablishments() {
   return (
     <main className="flex flex-col gap-y-6">
       <h1 className="font-extrabold tracking-tight text-4xl">
-        Business Establishments
+        Fossil Fuel Emissions
       </h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
@@ -72,28 +72,28 @@ export default function BusinessEstablishments() {
               }}
             />
           </div>
-          <BusinessIndustrySelector
-            excludedIndustries={excludedIndustries}
-            onCheckedChange={(checked, industryCode) => {
-              setExcludedIndustries((i) =>
+          <EnergySectorSelector
+            excludedSectors={excludedSectors}
+            onCheckedChange={(checked, sectorCode) => {
+              setExcludedSectors((i) =>
                 checked
-                  ? i.filter((v) => v !== industryCode)
-                  : i.concat(industryCode)
+                  ? i.filter((v) => v !== sectorCode)
+                  : i.concat(sectorCode)
               );
             }}
-            onReset={() => setExcludedIndustries([])}
+            onReset={() => setExcludedSectors([])}
           />
         </div>
       </div>
-      <PercentBusinessEstablishmentsCharts
+      <PercentEmissionsChart
         stateCode={selectedState}
-        excludedIndustries={excludedIndustries}
+        excludedSectors={excludedSectors}
         startYear={startYear}
         endYear={endYear}
         viewWindowMin={viewWindowMin}
         viewWindowMax={viewWindowMax}
       />
-      <TopBusinessIndustriesChart
+      <TopEnergySectorsChart
         stateCode={selectedState}
         startYear={startYear}
         endYear={endYear}
