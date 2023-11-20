@@ -33,18 +33,32 @@ export default function BusinessEstablishments() {
         Business Establishments
       </h1>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore
-        assumenda labore adipisci, totam, ipsam tenetur, a iusto voluptatibus
-        consequatur fuga corporis sequi amet quo illum vero quasi! Ipsum
-        architecto incidunt soluta quas, ea iste dignissimos. Doloremque ex ut
-        deleniti, quisquam voluptates corrupti earum accusamus. Illum
-        necessitatibus veniam, maxime dicta aperiam in blanditiis quidem nulla
-        totam velit quaerat fugit doloremque mollitia delectus eligendi debitis
-        esse tempore error, praesentium ea ab quae eos iure impedit! Eligendi
-        distinctio ipsum facilis ratione obcaecati tempore porro sequi excepturi
-        natus quam, ex quisquam atque quia perferendis ut repellat hic minima
-        fuga consectetur in doloremque! Sequi, ab?
+      On this page, you can find information regarding the number of business establishments in the U.S. during 
+      the time period 2010 to 2021 for each state. Each business establishment is categorized into a specific 
+      industry sector in which there are X different types. With the use of the time period slider bar, state 
+      selection, and business sector filter, one can view two different graphs that relay business establishment 
+      patterns given the criteria noted.
       </p>
+
+      <p>
+      The line graph represents the percentage of total business establishments in the U.S that that sector makes 
+      up and overlays this information with the number of Covid-19 cases in that given year per state. This allows 
+      one to see any changes that may appear in the number of business establishments per sector as the increase in
+      Covid-19 cases surges in the U.S.
+      </p>
+
+      <p>
+      The bar graph below, similarly, highlights the top 5 business sectors with the highest number of business 
+      establishments during the selected time period. This makes it easy to visualize what sectors make up most of 
+      the economy during any given time period in terms of number of establishments rather than percentage make-up.
+      </p>
+
+      <p>
+      These graphs provide insight into how Covid-19 has played a role in the evolving U.S economy and allows users 
+      to explore changes that occurred over time in each state. Some of the most significant findings are highlighted 
+      below.
+      </p>
+
       <div className="flex flex-col gap-y-2">
         <h3 className="text-2xl font-semibold">Controls</h3>
         <div className="grid grid-cols-2 gap-x-8 border-2 p-4 rounded-lg">
@@ -98,6 +112,13 @@ export default function BusinessEstablishments() {
         startYear={startYear}
         endYear={endYear}
       />
+
+    <h3 className="font-semibold text-xl">Trend Analysis</h3>
+    <p>How does the number of confirmed COVID-19 cases in a state affect the number of establishments 
+    per business sector of that state over the course of 2019-2022? Which business sectors saw dramatic 
+    changes in open or closed businesses?</p>
+
+
     </main>
   );
 }
