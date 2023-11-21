@@ -1,4 +1,5 @@
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
+import { SignInButton, SignUpButton } from "@clerk/clerk-react";
 
 export default function App() {
   return (
@@ -13,8 +14,8 @@ export default function App() {
           US Economy, Healthcare and Environmental Analysis
         </h2>
         <div className="flex justify-center gap-x-4">
-          <Button>Log In</Button>
-          <Button>Sign Up</Button>
+          <SignInButton afterSignInUrl="/app" className={buttonVariants()} />
+          <SignUpButton afterSignUpUrl="/app" className={buttonVariants()} />
         </div>
       </div>
     </main>

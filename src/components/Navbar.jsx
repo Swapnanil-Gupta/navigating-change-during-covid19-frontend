@@ -1,5 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { NavLink } from "react-router-dom";
+import { UserButton } from "@clerk/clerk-react";
 
 export default function Navbar() {
   return (
@@ -73,7 +73,7 @@ export default function Navbar() {
             </NavLink>
           </li>
         </ul>
-        <Button>Log out</Button>
+        <UserButton afterSignOutUrl="/" />
       </div>
     </header>
   );

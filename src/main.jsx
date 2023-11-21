@@ -1,6 +1,12 @@
 import "@/global.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
+import {
+  ClerkProvider,
+  SignedIn,
+  SignedOut,
+  RedirectToSignIn,
+} from "@clerk/clerk-react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import LandingPage from "@/pages/Landing";
@@ -8,6 +14,11 @@ import AppLayout from "@/layouts/App";
 import HomePage from "@/pages/Home";
 import BusinessEstablishments from "@/pages/BusinessEstablishments";
 import Emissions from "@/pages/Emissions";
+
+const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
+if (!clerkPubKey) {
+  throw new Error("Missing Clerk Publishable Key");
+}
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -26,7 +37,16 @@ const router = createBrowserRouter([
   },
   {
     path: "app",
-    element: <AppLayout />,
+    element: (
+      <>
+        <SignedIn>
+          <AppLayout />
+        </SignedIn>
+        <SignedOut>
+          <RedirectToSignIn />
+        </SignedOut>
+      </>
+    ),
     children: [
       {
         path: "",
@@ -46,8 +66,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
-    </QueryClientProvider>
+    <ClerkProvider publishableKey={clerkPubKey}>
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </ClerkProvider>
   </React.StrictMode>
 );

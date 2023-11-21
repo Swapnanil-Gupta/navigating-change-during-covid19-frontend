@@ -30,7 +30,7 @@ export default function PercentEmissionsCharts({
     series: seriesOption,
     vAxes: {
       0: {
-        title: "Percentage of Total Emissions",
+        title: "Percentage of Total Emissions (%)",
         viewWindow: {
           min: viewWindowMin,
           max: viewWindowMax,
