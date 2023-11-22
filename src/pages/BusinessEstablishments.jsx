@@ -8,7 +8,7 @@ import BusinessIndustrySelector from "@/components/BusinessIndustrySelector";
 
 const defaults = {
   stateCode: 1,
-  excludedIndustries: [],
+  includedIndustries: [72],
   startYear: 2010,
   endYear: 2021,
   minYear: 2010,
@@ -19,8 +19,8 @@ const defaults = {
 
 export default function BusinessEstablishments() {
   const [selectedState, setSelectedState] = useState(defaults.stateCode);
-  const [excludedIndustries, setExcludedIndustries] = useState(
-    defaults.excludedIndustries
+  const [includedIndustries, setIncludedIndustries] = useState(
+    defaults.includedIndustries
   );
   const [startYear, setStartYear] = useState(defaults.startYear);
   const [endYear, setEndYear] = useState(defaults.endYear);
@@ -93,21 +93,21 @@ export default function BusinessEstablishments() {
             />
           </div>
           <BusinessIndustrySelector
-            excludedIndustries={excludedIndustries}
+            selectedIndustries={includedIndustries}
             onCheckedChange={(checked, industryCode) => {
-              setExcludedIndustries((i) =>
+              setIncludedIndustries((i) =>
                 checked
-                  ? i.filter((v) => v !== industryCode)
-                  : i.concat(industryCode)
+                  ? i.concat(industryCode)
+                  : i.filter((v) => v !== industryCode)
               );
             }}
-            onReset={() => setExcludedIndustries([])}
+            onReset={() => setIncludedIndustries(defaults.includedIndustries)}
           />
         </div>
       </div>
       <PercentBusinessEstablishmentsCharts
         stateCode={selectedState}
-        excludedIndustries={excludedIndustries}
+        includedIndustries={includedIndustries}
         startYear={startYear}
         endYear={endYear}
         viewWindowMin={viewWindowMin}
@@ -124,70 +124,81 @@ export default function BusinessEstablishments() {
         <div className="flex flex-col gap-y-2">
           <p>
             <b>
-            How does the number of confirmed COVID-19 cases in a state affect
-            the number of establishments per business sector of that state over
-            the course of 2019-2022? Which business sectors saw dramatic changes
-            in open or closed businesses?
+              How does the number of confirmed COVID-19 cases in a state affect
+              the number of establishments per business sector of that state
+              over the course of 2019-2022? Which business sectors saw dramatic
+              changes in open or closed businesses?
             </b>
           </p>
-
           <p>
-            Several different trends were observed in the production of this query and the most significant 
-            was the decrease in Retail Trade. Retail Trade has seen a steady decline in business establishments 
-            since the rise of the Internet and E-commerce retail platforms, but Covid-19 further accelerated this 
-            decrease. As more people began to work from home, the clothing industry which holds 38.6% of the total 
-            retail sector employment loss, saw a significant decrease in customer activity (1). Generally, as lockdowns 
-            and shifts in consumer behavior accelerated by Covid-19, the Retail Sector in every state continued its 
-            forward decline in business establishment and unemployment rates.
-            </p>
-
-          <p>
-            The next major trend that saw a shift due to the onset of Covid-19 cases in each state was the Real 
-            Estate, Rental, and Leasing industry. This sector had been relatively constant until the surge in Covid 
-            cases in the US began. These business establishments relate to the housing market both for rental and 
-            ownership properties. As Covid-19 started to encourage many people to move out of densely populated areas 
-            in search of safer places to work remotely, the rise in demand for home sales skyrocketed (2). Almost 
-            every state in the US saw an increase in this market which appears clearly in the line graphs per state in 
-            this particular business sector. 
+            Several different trends were observed in the production of this
+            query and the most significant was the decrease in Retail Trade.
+            Retail Trade has seen a steady decline in business establishments
+            since the rise of the Internet and E-commerce retail platforms, but
+            Covid-19 further accelerated this decrease. As more people began to
+            work from home, the clothing industry which holds 38.6% of the total
+            retail sector employment loss, saw a significant decrease in
+            customer activity (1). Generally, as lockdowns and shifts in
+            consumer behavior accelerated by Covid-19, the Retail Sector in
+            every state continued its forward decline in business establishment
+            and unemployment rates.
           </p>
-
           <p>
-            In addition to Housing and Retail, another more obscure industry sector that saw a change during the 
-            pandemic was Construction market. In theory, this industry should have slowed due to its in-person 
-            nature of work and inability to introduce remote work capabilities as well as supply chain shortages. 
-            On the contrary, the Construction industry saw a sharp increase in business establishments in 2019 and 2020. 
-            One reason for this could be the contractors ability to divide up work in outdoor spaces to smaller teams of 
-            people, thus limiting the spread of contact. Additionally, many homeowners, while working from home during 
-            the pandemic, turned to home renovations as a source of distraction which could explain the increase in 
-            construction related business establishments.
+            The next major trend that saw a shift due to the onset of Covid-19
+            cases in each state was the Real Estate, Rental, and Leasing
+            industry. This sector had been relatively constant until the surge
+            in Covid cases in the US began. These business establishments relate
+            to the housing market both for rental and ownership properties. As
+            Covid-19 started to encourage many people to move out of densely
+            populated areas in search of safer places to work remotely, the rise
+            in demand for home sales skyrocketed (2). Almost every state in the
+            US saw an increase in this market which appears clearly in the line
+            graphs per state in this particular business sector.
           </p>
-            
           <p>
-            The last major trend that is observable from the data provided above is the major increase in the 
-            Transportation and Warehousing industry. This industry follows an indirect relationship to the retail 
-            trade market in that E-commerce has significantly increased the need for transportation and warehousing 
-            support. As a drop in in-person shopping occurred due to the onset of Covid-19 in each state, the increase 
-            in warehouse businesses as well as freight companies shows the shift in consumer demand to online purchases. 
-            Platforms like Amazon are a good example of how the rise in E-commerce businesses will skyrocket the need for 
-            more warehouses and transportation solutions throughout the country.
+            In addition to Housing and Retail, another more obscure industry
+            sector that saw a change during the pandemic was Construction
+            market. In theory, this industry should have slowed due to its
+            in-person nature of work and inability to introduce remote work
+            capabilities as well as supply chain shortages. On the contrary, the
+            Construction industry saw a sharp increase in business
+            establishments in 2019 and 2020. One reason for this could be the
+            contractors ability to divide up work in outdoor spaces to smaller
+            teams of people, thus limiting the spread of contact. Additionally,
+            many homeowners, while working from home during the pandemic, turned
+            to home renovations as a source of distraction which could explain
+            the increase in construction related business establishments.
           </p>
-
           <p>
-          It was generally surprising to not see a change in Health Care and Social Assistance business patterns or 
-          Accommodation and Food Services given the nature of their work and the pandemic unfolding around the globe. 
-          However, this could be explained that these are not profitable businesses and are typically funded by the 
-          government which will be the main determinant of growth in those industries. That would have been a trend 
-          one would expect to see major changes in. 
+            The last major trend that is observable from the data provided above
+            is the major increase in the Transportation and Warehousing
+            industry. This industry follows an indirect relationship to the
+            retail trade market in that E-commerce has significantly increased
+            the need for transportation and warehousing support. As a drop in
+            in-person shopping occurred due to the onset of Covid-19 in each
+            state, the increase in warehouse businesses as well as freight
+            companies shows the shift in consumer demand to online purchases.
+            Platforms like Amazon are a good example of how the rise in
+            E-commerce businesses will skyrocket the need for more warehouses
+            and transportation solutions throughout the country.
           </p>
-          
           <p>
-               
+            It was generally surprising to not see a change in Health Care and
+            Social Assistance business patterns or Accommodation and Food
+            Services given the nature of their work and the pandemic unfolding
+            around the globe. However, this could be explained that these are
+            not profitable businesses and are typically funded by the government
+            which will be the main determinant of growth in those industries.
+            That would have been a trend one would expect to see major changes
+            in.
           </p>
-          1. https://www.bls.gov/opub/btn/volume-11/retail-trade-employment-before-during-and-after-the-pandemic.htm#:~:text=The%20clothing%20stores%20industry%20accounted,began%20to%20work%20from%20home.
+          <p></p>
+          1.
+          https://www.bls.gov/opub/btn/volume-11/retail-trade-employment-before-during-and-after-the-pandemic.htm#:~:text=The%20clothing%20stores%20industry%20accounted,began%20to%20work%20from%20home.
           <p>
-          2. https://www.forbes.com/sites/forbesbusinesscouncil/2022/05/18/how-has-the-pandemic-influenced-the-real-estate-industry/?sh=543a82a74243
+            2.
+            https://www.forbes.com/sites/forbesbusinesscouncil/2022/05/18/how-has-the-pandemic-influenced-the-real-estate-industry/?sh=543a82a74243
           </p>
-
         </div>
       </div>
     </main>

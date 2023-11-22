@@ -4,7 +4,7 @@ import { Chart } from "react-google-charts";
 
 export default function PercentEmissionsCharts({
   stateCode,
-  excludedSectors,
+  includedSectors,
   startYear,
   endYear,
   viewWindowMin,
@@ -12,13 +12,15 @@ export default function PercentEmissionsCharts({
 }) {
   const { isLoading, isError, data, error } = useEmissionsData({
     stateCode,
-    excludedSectors,
+    includedSectors,
     startYear,
     endYear,
   });
 
   const colCount = data ? data[0].length : 0;
-  const seriesOption = { 0: { targetAxisIndex: 1 } };
+  const seriesOption = {
+    0: { targetAxisIndex: 1, lineWidth: 4, lineDashStyle: [5, 1, 5] },
+  };
   for (let i = 1; i < colCount; i++) seriesOption[i] = { targetAxisIndex: 0 };
   const ticksOption = Array.from(
     { length: endYear - startYear + 1 },
@@ -26,7 +28,7 @@ export default function PercentEmissionsCharts({
   );
 
   const chartOptions = {
-    pointSize: 3,
+    pointSize: 6,
     series: seriesOption,
     vAxes: {
       0: {

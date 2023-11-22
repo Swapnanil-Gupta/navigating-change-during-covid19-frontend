@@ -8,7 +8,7 @@ import Loader from "@/components/ui/loader";
 import { RotateCcw } from "lucide-react";
 
 export default function BusinessIndustrySelector({
-  excludedIndustries,
+  selectedIndustries,
   onCheckedChange,
   onReset,
 }) {
@@ -43,7 +43,7 @@ export default function BusinessIndustrySelector({
               {filteredData.map(({ industryCode, industryName }) => (
                 <div key={industryCode} className="flex items-center gap-x-2">
                   <Checkbox
-                    checked={!excludedIndustries.includes(industryCode)}
+                    checked={selectedIndustries.includes(industryCode)}
                     onCheckedChange={(checked) =>
                       onCheckedChange(checked, industryCode)
                     }

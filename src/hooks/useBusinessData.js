@@ -3,12 +3,12 @@ import axios from "@/lib/axios";
 
 export default function useBusinessData({
   stateCode,
-  excludedIndustries,
+  includedIndustries = [],
   startYear,
   endYear,
 }) {
   const query = useQuery(
-    ["/business-data", stateCode, excludedIndustries, startYear, endYear],
+    ["/business-data", stateCode, includedIndustries, startYear, endYear],
     async () => {
       try {
         const response = await axios.get("/business-data", {
@@ -16,7 +16,7 @@ export default function useBusinessData({
             stateCode,
             startYear,
             endYear,
-            excludedIndustries,
+            includedIndustries,
           },
         });
         return response.data;

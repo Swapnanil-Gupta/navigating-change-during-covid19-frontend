@@ -4,7 +4,7 @@ import { Chart } from "react-google-charts";
 
 export default function PercentBusinessEstablishmentsCharts({
   stateCode,
-  excludedIndustries,
+  includedIndustries,
   startYear,
   endYear,
   viewWindowMin,
@@ -12,13 +12,15 @@ export default function PercentBusinessEstablishmentsCharts({
 }) {
   const { isLoading, isError, data, error } = useBusinessData({
     stateCode,
-    excludedIndustries,
+    includedIndustries,
     startYear,
     endYear,
   });
 
   const colCount = data ? data[0].length : 0;
-  const seriesOption = { 0: { targetAxisIndex: 1 } };
+  const seriesOption = {
+    0: { targetAxisIndex: 1, lineWidth: 4, lineDashStyle: [5, 1, 5] },
+  };
   for (let i = 1; i < colCount; i++) seriesOption[i] = { targetAxisIndex: 0 };
   const ticksOption = Array.from(
     { length: endYear - startYear + 1 },
@@ -26,11 +28,11 @@ export default function PercentBusinessEstablishmentsCharts({
   );
 
   const chartOptions = {
-    pointSize: 3,
+    pointSize: 6,
     series: seriesOption,
     vAxes: {
       0: {
-        title: "Percentage of Total Business Establishments",
+        title: "Percentage of Total Business Establishments (%)",
         viewWindow: {
           min: viewWindowMin,
           max: viewWindowMax,
@@ -60,7 +62,7 @@ export default function PercentBusinessEstablishmentsCharts({
   return (
     <div>
       <h3 className="text-2xl font-semibold">
-        Yearly Distribution of Business Establishments by Industry (%)
+        Yearly Distribution of Business Establishments by Industry
       </h3>
       {isLoading && <Loader className="mx-auto my-8 h-8 w-8" />}
       {!isLoading && !isError && (
