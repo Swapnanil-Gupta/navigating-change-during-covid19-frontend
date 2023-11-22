@@ -3,12 +3,12 @@ import axios from "@/lib/axios";
 
 export default function useEmissionsData({
   stateCode,
-  excludedSectors,
+  includedSectors = [],
   startYear,
   endYear,
 }) {
   const query = useQuery(
-    ["/emission-data", stateCode, excludedSectors, startYear, endYear],
+    ["/emission-data", stateCode, includedSectors, startYear, endYear],
     async () => {
       try {
         const response = await axios.get("/emission-data", {
@@ -16,7 +16,7 @@ export default function useEmissionsData({
             stateCode,
             startYear,
             endYear,
-            excludedSectors,
+            includedSectors,
           },
         });
         return response.data;

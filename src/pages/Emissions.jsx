@@ -8,7 +8,7 @@ import EnergySectorSelector from "@/components/EnergySectorSelector";
 
 const defaults = {
   stateCode: 1,
-  excludedSectors: [],
+  includedSectors: [11, 22, 33, 44, 55],
   startYear: 1976,
   endYear: 2021,
   minYear: 1976,
@@ -19,8 +19,8 @@ const defaults = {
 
 export default function Emissions() {
   const [selectedState, setSelectedState] = useState(defaults.stateCode);
-  const [excludedSectors, setExcludedSectors] = useState(
-    defaults.excludedSectors
+  const [includedSectors, setIncludedSectors] = useState(
+    defaults.includedSectors
   );
   const [startYear, setStartYear] = useState(defaults.startYear);
   const [endYear, setEndYear] = useState(defaults.endYear);
@@ -73,21 +73,21 @@ export default function Emissions() {
             />
           </div>
           <EnergySectorSelector
-            excludedSectors={excludedSectors}
+            includedSectors={includedSectors}
             onCheckedChange={(checked, sectorCode) => {
-              setExcludedSectors((i) =>
+              setIncludedSectors((i) =>
                 checked
-                  ? i.filter((v) => v !== sectorCode)
-                  : i.concat(sectorCode)
+                  ? i.concat(sectorCode)
+                  : i.filter((v) => v !== sectorCode)
               );
             }}
-            onReset={() => setExcludedSectors([])}
+            onReset={() => setIncludedSectors([])}
           />
         </div>
       </div>
       <PercentEmissionsChart
         stateCode={selectedState}
-        excludedSectors={excludedSectors}
+        includedSectors={includedSectors}
         startYear={startYear}
         endYear={endYear}
         viewWindowMin={viewWindowMin}

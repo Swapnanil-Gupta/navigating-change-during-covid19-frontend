@@ -8,7 +8,7 @@ import Loader from "@/components/ui/loader";
 import { RotateCcw } from "lucide-react";
 
 export default function EnergySectorSelector({
-  excludedSectors,
+  includedSectors,
   onCheckedChange,
   onReset,
 }) {
@@ -43,7 +43,7 @@ export default function EnergySectorSelector({
               {filteredData.map(({ sectorCode, sectorName }) => (
                 <div key={sectorCode} className="flex items-center gap-x-2">
                   <Checkbox
-                    checked={!excludedSectors.includes(sectorCode)}
+                    checked={includedSectors.includes(sectorCode)}
                     onCheckedChange={(checked) =>
                       onCheckedChange(checked, sectorCode)
                     }
