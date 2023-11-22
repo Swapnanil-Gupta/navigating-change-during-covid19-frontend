@@ -62,7 +62,7 @@ export default function PercentBusinessEstablishmentsCharts({
   return (
     <div>
       <h3 className="text-2xl font-semibold">
-        Yearly Distribution of Business Establishments by Industry
+        Yearly Distribution of Business Establishments by Industry in the State
       </h3>
       {isLoading && <Loader className="mx-auto my-8 h-8 w-8" />}
       {!isLoading && !isError && (

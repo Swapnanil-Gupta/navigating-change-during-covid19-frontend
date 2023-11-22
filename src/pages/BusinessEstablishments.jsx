@@ -5,6 +5,7 @@ import PercentBusinessEstablishmentsCharts from "@/components/PercentBusinessEst
 import TopBusinessIndustriesChart from "@/components/TopBusinessIndustriesChart";
 import ViewWindowSlider from "@/components/ViewWindowSlider";
 import BusinessIndustrySelector from "@/components/BusinessIndustrySelector";
+import BusinessEstablishmentsGeoChart from "@/components/BusinessEstablishmentsGeoChart";
 
 const defaults = {
   stateCode: 1,
@@ -118,17 +119,18 @@ export default function BusinessEstablishments() {
         startYear={startYear}
         endYear={endYear}
       />
+      <BusinessEstablishmentsGeoChart startYear={startYear} endYear={endYear} />
 
       <div className="flex flex-col gap-y-4">
         <h3 className="font-semibold text-2xl">Trend Analysis</h3>
         <div className="flex flex-col gap-y-2">
           <p>
-            <b>
+            <strong>
               How does the number of confirmed COVID-19 cases in a state affect
               the number of establishments per business sector of that state
               over the course of 2019-2022? Which business sectors saw dramatic
               changes in open or closed businesses?
-            </b>
+            </strong>
           </p>
           <p>
             Several different trends were observed in the production of this
@@ -192,12 +194,23 @@ export default function BusinessEstablishments() {
             That would have been a trend one would expect to see major changes
             in.
           </p>
-          <p></p>
-          1.
-          https://www.bls.gov/opub/btn/volume-11/retail-trade-employment-before-during-and-after-the-pandemic.htm#:~:text=The%20clothing%20stores%20industry%20accounted,began%20to%20work%20from%20home.
           <p>
-            2.
-            https://www.forbes.com/sites/forbesbusinesscouncil/2022/05/18/how-has-the-pandemic-influenced-the-real-estate-industry/?sh=543a82a74243
+            (1){" "}
+            <a
+              className="underline"
+              href="https://www.bls.gov/opub/btn/volume-11/retail-trade-employment-before-during-and-after-the-pandemic.htm#:~:text=The%20clothing%20stores%20industry%20accounted,began%20to%20work%20from%20home"
+            >
+              https://www.bls.gov/opub/btn/volume-11/retail-trade-employment-before-during-and-after-the-pandemic.htm#:~:text=The%20clothing%20stores%20industry%20accounted,began%20to%20work%20from%20home
+            </a>
+          </p>
+          <p>
+            (2){" "}
+            <a
+              className="underline"
+              href="https://www.forbes.com/sites/forbesbusinesscouncil/2022/05/18/how-has-the-pandemic-influenced-the-real-estate-industry/?sh=543a82a74243"
+            >
+              https://www.forbes.com/sites/forbesbusinesscouncil/2022/05/18/how-has-the-pandemic-influenced-the-real-estate-industry/?sh=543a82a74243
+            </a>
           </p>
         </div>
       </div>

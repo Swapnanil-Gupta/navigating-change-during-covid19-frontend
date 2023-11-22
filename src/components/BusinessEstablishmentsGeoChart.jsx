@@ -1,18 +1,14 @@
-import useTopBusinessIndustries from "@/hooks/useTopBusinessIndustries";
+import useBusinessGeoData from "@/hooks/useBusinessGeoData";
 import Loader from "@/components/ui/loader";
 import { Chart } from "react-google-charts";
 
 const chartOptions = {
-  // title: "Top 5 Industries Trend",
+  region: "US",
+  resolution: "provinces",
 };
 
-export default function TopBusinessIndustriesChart({
-  stateCode,
-  startYear,
-  endYear,
-}) {
-  const { isLoading, isError, data, error } = useTopBusinessIndustries({
-    stateCode,
+export default function BusinessEstablishmentsGeoChart({ startYear, endYear }) {
+  const { isLoading, isError, data, error } = useBusinessGeoData({
     startYear,
     endYear,
   });
@@ -20,12 +16,12 @@ export default function TopBusinessIndustriesChart({
   return (
     <div>
       <h3 className="text-2xl font-semibold">
-        Top 5 Business Industries in the State
+        Geographical Distribution of All Business Establishments
       </h3>
       {isLoading && <Loader className="mx-auto my-8 h-8 w-8" />}
       {!isLoading && !isError && (
         <Chart
-          chartType="BarChart"
+          chartType="GeoChart"
           width="100%"
           height="800px"
           options={chartOptions}
