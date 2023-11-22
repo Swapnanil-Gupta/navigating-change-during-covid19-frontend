@@ -14,6 +14,7 @@ import AppLayout from "@/layouts/App";
 import HomePage from "@/pages/Home";
 import BusinessEstablishments from "@/pages/BusinessEstablishments";
 import Emissions from "@/pages/Emissions";
+import TaxPage from "@/pages/TaxPage"
 
 const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 if (!clerkPubKey) {
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
         path: "emissions",
         element: <Emissions />,
       },
+      {
+        path:"tax",
+        element:<TaxPage />
+      }
     ],
   },
 ]);
