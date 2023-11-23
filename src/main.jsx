@@ -15,6 +15,7 @@ import HomePage from "@/pages/Home";
 import BusinessEstablishments from "@/pages/BusinessEstablishments";
 import Emissions from "@/pages/Emissions";
 import Payroll from "@/pages/Payroll";
+import TaxRevenue from "./pages/TaxRevenue";
 
 const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 if (!clerkPubKey) {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
       {
         path: "payroll",
         element: <Payroll />,
+      },
+      {
+        path: "tax-revenue",
+        element: <TaxRevenue />,
       },
     ],
   },

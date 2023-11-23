@@ -2,7 +2,7 @@ import useBusinessData from "@/hooks/useBusinessData";
 import Loader from "@/components/ui/loader";
 import { Chart } from "react-google-charts";
 
-export default function PercentBusinessEstablishmentsCharts({
+export default function PercentBusinessEstablishmentsChart({
   stateCode,
   includedIndustries,
   startYear,

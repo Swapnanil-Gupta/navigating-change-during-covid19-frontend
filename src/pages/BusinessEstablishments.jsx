@@ -1,7 +1,7 @@
 import { useState } from "react";
 import StateDropdown from "@/components/StateDropdown";
 import TimeRangeSlider from "@/components/TimeRangeSlider";
-import PercentBusinessEstablishmentsCharts from "@/components/PercentBusinessEstablishmentsCharts";
+import PercentBusinessEstablishmentsChart from "@/components/PercentBusinessEstablishmentsChart";
 import TopBusinessIndustriesChart from "@/components/TopBusinessIndustriesChart";
 import ViewWindowSlider from "@/components/ViewWindowSlider";
 import BusinessIndustrySelector from "@/components/BusinessIndustrySelector";
@@ -106,7 +106,7 @@ export default function BusinessEstablishments() {
           />
         </div>
       </div>
-      <PercentBusinessEstablishmentsCharts
+      <PercentBusinessEstablishmentsChart
         stateCode={selectedState}
         includedIndustries={includedIndustries}
         startYear={startYear}
