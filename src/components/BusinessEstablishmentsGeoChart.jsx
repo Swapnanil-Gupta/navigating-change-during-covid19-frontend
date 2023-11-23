@@ -16,7 +16,8 @@ export default function BusinessEstablishmentsGeoChart({ startYear, endYear }) {
   return (
     <div>
       <h3 className="text-2xl font-semibold">
-        Geographical Distribution of All Business Establishments
+        Geographical Distribution of Average Business Establishments from{" "}
+        {startYear}-{endYear}
       </h3>
       {isLoading && <Loader className="mx-auto my-8 h-8 w-8" />}
       {!isLoading && !isError && (

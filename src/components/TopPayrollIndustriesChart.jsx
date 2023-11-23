@@ -1,11 +1,17 @@
-import useTopEnergySectors from "@/hooks/useTopEnergySectors";
+import useTopPayrollIndustries from "@/hooks/useTopPayrollIndustries";
 import Loader from "@/components/ui/loader";
 import { Chart } from "react-google-charts";
 
-const chartOptions = {};
+const chartOptions = {
+  // title: "Top 5 Industries Trend",
+};
 
-export default function TopEnergySectors({ stateCode, startYear, endYear }) {
-  const { isLoading, isError, data, error } = useTopEnergySectors({
+export default function TopPayrollIndustriesChart({
+  stateCode,
+  startYear,
+  endYear,
+}) {
+  const { isLoading, isError, data, error } = useTopPayrollIndustries({
     stateCode,
     startYear,
     endYear,
@@ -14,7 +20,7 @@ export default function TopEnergySectors({ stateCode, startYear, endYear }) {
   return (
     <div>
       <h3 className="text-2xl font-semibold">
-        Top Energy Sectors in the State from {startYear}-{endYear}
+        Top Paying Industries in the State from {startYear}-{endYear}
       </h3>
       {isLoading && <Loader className="mx-auto my-8 h-8 w-8" />}
       {!isLoading && !isError && (

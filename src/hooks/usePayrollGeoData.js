@@ -1,21 +1,20 @@
 import { useQuery } from "react-query";
 import axios from "@/lib/axios";
 
-export default function useTopEnergySectors({ stateCode, startYear, endYear }) {
+export default function usePayrollGeoData({ startYear, endYear }) {
   const query = useQuery(
-    ["/emission-data/top-sectors", stateCode, startYear, endYear],
+    ["/payroll-data/geo", startYear, endYear],
     async () => {
       try {
-        const response = await axios.get("/emission-data/top-sectors", {
+        const response = await axios.get("/payroll-data/geo", {
           params: {
-            stateCode,
             startYear,
             endYear,
           },
         });
         return response.data;
       } catch (err) {
-        throw new Error("Failed to fetch top energy sectors");
+        throw new Error("Failed to fetch payroll geo data");
       }
     }
   );

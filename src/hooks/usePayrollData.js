@@ -1,25 +1,27 @@
 import { useQuery } from "react-query";
 import axios from "@/lib/axios";
 
-export default function useTopBusinessIndustries({
+export default function usePayrollData({
   stateCode,
+  includedIndustries = [],
   startYear,
   endYear,
 }) {
   const query = useQuery(
-    ["/business-data/top-industries", stateCode, startYear, endYear],
+    ["/payroll-data", stateCode, includedIndustries, startYear, endYear],
     async () => {
       try {
-        const response = await axios.get("/business-data/top-industries", {
+        const response = await axios.get("/payroll-data", {
           params: {
             stateCode,
             startYear,
             endYear,
+            includedIndustries,
           },
         });
         return response.data;
       } catch (err) {
-        throw new Error("Failed to fetch top business industries");
+        throw new Error("Failed to fetch payroll data");
       }
     }
   );

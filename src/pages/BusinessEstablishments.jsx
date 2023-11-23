@@ -8,7 +8,7 @@ import BusinessIndustrySelector from "@/components/BusinessIndustrySelector";
 import BusinessEstablishmentsGeoChart from "@/components/BusinessEstablishmentsGeoChart";
 
 const defaults = {
-  stateCode: 1,
+  selectedState: 1,
   includedIndustries: [72],
   startYear: 2010,
   endYear: 2021,
@@ -19,7 +19,7 @@ const defaults = {
 };
 
 export default function BusinessEstablishments() {
-  const [selectedState, setSelectedState] = useState(defaults.stateCode);
+  const [selectedState, setSelectedState] = useState(defaults.selectedState);
   const [includedIndustries, setIncludedIndustries] = useState(
     defaults.includedIndustries
   );

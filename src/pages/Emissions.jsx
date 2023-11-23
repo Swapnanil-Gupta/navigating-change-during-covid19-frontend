@@ -5,9 +5,10 @@ import PercentEmissionsChart from "@/components/PercentEmissionsChart";
 import TopEnergySectorsChart from "@/components/TopEnergySectorsChart";
 import ViewWindowSlider from "@/components/ViewWindowSlider";
 import EnergySectorSelector from "@/components/EnergySectorSelector";
+import EmissionsGeoChart from "@/components/EmissionsGeoChart";
 
 const defaults = {
-  stateCode: 1,
+  selectedState: 1,
   includedSectors: [11, 22, 33, 44, 55],
   startYear: 1976,
   endYear: 2021,
@@ -18,7 +19,7 @@ const defaults = {
 };
 
 export default function Emissions() {
-  const [selectedState, setSelectedState] = useState(defaults.stateCode);
+  const [selectedState, setSelectedState] = useState(defaults.selectedState);
   const [includedSectors, setIncludedSectors] = useState(
     defaults.includedSectors
   );
@@ -98,6 +99,7 @@ export default function Emissions() {
         startYear={startYear}
         endYear={endYear}
       />
+      <EmissionsGeoChart startYear={startYear} endYear={endYear} />
     </main>
   );
 }

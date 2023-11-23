@@ -1,18 +1,18 @@
-import useEmissionsData from "@/hooks/useEmissionsData";
+import usePayrollData from "@/hooks/usePayrollData";
 import Loader from "@/components/ui/loader";
 import { Chart } from "react-google-charts";
 
-export default function PercentEmissionsCharts({
+export default function PercentBusinessEstablishmentsCharts({
   stateCode,
-  includedSectors,
+  includedIndustries,
   startYear,
   endYear,
   viewWindowMin,
   viewWindowMax,
 }) {
-  const { isLoading, isError, data, error } = useEmissionsData({
+  const { isLoading, isError, data, error } = usePayrollData({
     stateCode,
-    includedSectors,
+    includedIndustries,
     startYear,
     endYear,
   });
@@ -32,7 +32,7 @@ export default function PercentEmissionsCharts({
     series: seriesOption,
     vAxes: {
       0: {
-        title: "Percentage of Total Emissions (%)",
+        title: "Average Payroll Per Employee ($1000)",
         viewWindow: {
           min: viewWindowMin,
           max: viewWindowMax,
@@ -62,7 +62,7 @@ export default function PercentEmissionsCharts({
   return (
     <div>
       <h3 className="text-2xl font-semibold">
-        Yearly Distribution of Fossil Fuel Emissions by Energy Sector in the
+        Yearly Distribution of Average Payroll Per Employee by Industry in the
         State
       </h3>
       {isLoading && <Loader className="mx-auto my-8 h-8 w-8" />}

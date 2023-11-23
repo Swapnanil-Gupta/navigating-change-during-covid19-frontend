@@ -14,6 +14,7 @@ import AppLayout from "@/layouts/App";
 import HomePage from "@/pages/Home";
 import BusinessEstablishments from "@/pages/BusinessEstablishments";
 import Emissions from "@/pages/Emissions";
+import Payroll from "@/pages/Payroll";
 
 const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 if (!clerkPubKey) {
@@ -24,9 +25,9 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: false,
-      refetchOnMount: false,
-      refetchOnReconnect: false,
-      refetchOnWindowFocus: false,
+      // refetchOnMount: false,
+      // refetchOnReconnect: false,
+      // refetchOnWindowFocus: false,
     },
   },
 });
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: "emissions",
         element: <Emissions />,
+      },
+      {
+        path: "payroll",
+        element: <Payroll />,
       },
     ],
   },
