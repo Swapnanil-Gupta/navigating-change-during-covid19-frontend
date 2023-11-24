@@ -10,9 +10,9 @@ import EmissionsGeoChart from "@/components/EmissionsGeoChart";
 const defaults = {
   selectedState: 1,
   includedSectors: [11, 22, 33, 44, 55],
-  startYear: 1976,
+  startYear: 1970,
   endYear: 2021,
-  minYear: 1976,
+  minYear: 1970,
   maxYear: 2021,
   viewWindowMin: null,
   viewWindowMax: null,
