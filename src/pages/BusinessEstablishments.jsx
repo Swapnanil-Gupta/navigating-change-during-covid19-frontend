@@ -38,7 +38,7 @@ export default function BusinessEstablishments() {
           On this page, you can find information regarding the number of
           business establishments in the U.S. during the time period 2010 to
           2021 for each state. Each business establishment is categorized into a
-          specific industry sector in which there are X different types. With
+          specific industry sector in which there are 20 different types. With
           the use of the time period slider bar, state selection, and business
           sector filter, one can view two different graphs that relay business
           establishment patterns given the criteria noted.
