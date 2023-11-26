@@ -35,18 +35,28 @@ export default function Payroll() {
       </h1>
       <div className="flex flex-col gap-y-2">
         <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corrupti
-          ipsa quas, expedita aspernatur, doloremque odio quaerat at cupiditate
-          voluptas excepturi repudiandae ipsum voluptatum. Sit nisi iure error
-          repudiandae excepturi qui sapiente, nemo corporis ex ab quae iusto rem
-          et natus ipsum suscipit nesciunt voluptatum magni saepe aliquam quod
-          dicta quisquam a maiores. Veritatis asperiores enim reprehenderit
-          aperiam earum tempora ullam ut in harum culpa dolores incidunt quis
-          cum temporibus quo sapiente facilis repudiandae quisquam, ea eligendi
-          neque suscipit explicabo! Consequuntur, labore. Eligendi qui et
-          cupiditate nulla quaerat temporibus, molestias incidunt soluta,
-          praesentium pariatur voluptas voluptates deserunt illum numquam alias
-          deleniti.
+        On this page, you can find information regarding the total annual payroll per business sector for 
+        the different states of the US during COVID-19 and the top business sectors with the highest average 
+        annual payroll during that time. Each business establishment is categorized into a specific industry 
+        sector in which there are 20 different types. With the use of the time period slider bar, state selection, 
+        and business sector filter, one can view two different graphs that relay business establishment patterns 
+        given the criteria noted.
+        </p>
+        <p>
+        The line graph represents the average payroll per employee in the U.S per business sector and overlays 
+          this information with the number of Covid-19 cases in that given year per state. This allows one to see 
+          any changes that may appear in the average salary per sector as the increase in Covid-19 cases surges in 
+          the U.S.
+        </p>
+        <p>
+        The bar graph below, similarly, highlights all the business sector’s average payroll per employee during 
+        the selected time period. This makes it easy to visualize what sectors make up most of salary contributions 
+        during any given time period.
+        </p>
+        These graphs provide insight into how Covid-19 has played a role in the evolving U.S economy and personal 
+        income and allows users to explore changes that occurred over time in each state. Some of the most significant 
+        findings are highlighted below.
+        <p>
         </p>
       </div>
 
@@ -108,20 +118,48 @@ export default function Payroll() {
       <div className="flex flex-col gap-y-4">
         <h3 className="font-semibold text-2xl">Trend Analysis</h3>
         <div className="flex flex-col gap-y-2">
+        <p>
+            <strong>
+            How did the employment payroll of different business categories per state change over the course of 
+            COVID-19? What can this tell us about which industries were particularly important during COVID-19 and 
+            which became obsolete? 
+            </strong>
+          </p>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-            ipsam est voluptatem iste minima voluptate sapiente veniam!
-            Recusandae enim, dolores reiciendis incidunt natus nemo sed repellat
-            maxime molestiae, odit perferendis! Labore dignissimos eaque sunt
-            blanditiis veniam illum eligendi, illo dicta corporis. Quidem,
-            itaque quia alias maxime minus consequuntur temporibus vel doloribus
-            dolore sit nesciunt doloremque iusto omnis voluptates ad dignissimos
-            quisquam. Totam ab numquam quia nostrum fugiat neque possimus
-            aliquid, explicabo voluptatibus natus. In quas dignissimos quis
-            aliquid laboriosam dolores impedit placeat molestias repellat
-            repudiandae aspernatur voluptas voluptatibus ut voluptatum amet
-            expedita, necessitatibus architecto, quidem praesentium rem. Quae,
-            necessitatibus culpa.
+          The first notable trend observed in this query is during the COVID-19 pandemic, the Information business 
+          sector witnessed a notable increase in average payroll per employee. This could be for several interconnected 
+          reasons. First, the sector's pivotal role in facilitating the rapid shift to remote work and digital 
+          transformation led to heightened demand for digital services, cloud technologies, and collaboration tools. 
+          The necessity for specialized skills in areas like software development and cybersecurity, coupled with a 
+          scarcity of qualified professionals, prompted companies to offer higher salaries to attract and retain talent. 
+          Certain segments within the Information sector, including e-commerce and online communication platforms, 
+          experienced growth or maintained resilience, allowing companies to sustain or expand operations and justify 
+          increased payroll expenses. The recognition of the strategic importance of information technology during the 
+          pandemic further motivated businesses to invest in their IT workforce, contributing to the overall uptick in 
+          average payroll per employee. 
+          </p>
+          <p>
+          The next interesting trend that was observed was a general increase throughout most states within their Arts, 
+          Entertainment, and Recreation sector. It's not typical for this sector to experience an increase in average 
+          payroll per employee, in fact, this sector was one of the hardest-hit due to lockdowns, restrictions on 
+          gatherings, and the overall decline in consumer spending on entertainment and leisure activities. Businesses 
+          such as theaters, concert venues, and event organizers faced closures and cancellations, leading to revenue 
+         losses and financial strain. If there were instances of increased average payroll per employee in this sector 
+         during the pandemic, they would likely be specific to certain companies or situations. Possible reasons could 
+         include unique business models, adaptations to the circumstances such as enhanced digital offerings, or specific 
+         measures taken by individual companies to support their employees during challenging times.  
+          </p>
+          <p>
+          The Professional, Scientific, and Technical Services sector was another observable trend in which they 
+          experienced an increase in average payroll per employee during the COVID-19 pandemic due to heightened 
+          demand for specialized services. With businesses rapidly adopting remote work, there was a surge in the need 
+          for technology consulting services, leading to increased demand for professionals in information technology 
+          and related fields. Legal and compliance challenges introduced by the pandemic prompted a greater demand for 
+          legal services, while the scientific research and healthcare consulting segments of the sector experienced 
+          heightened activity as organizations sought expertise in epidemiology, public health, and medical research. 
+          Additionally, the sector's adaptability and ability to provide essential expertise during a time of crisis, 
+          coupled with government stimulus packages supporting businesses, contributed to its resilience and the 
+          associated increase in compensation for its workforce.
           </p>
         </div>
       </div>
