@@ -194,24 +194,24 @@ export default function BusinessEstablishments() {
             That would have been a trend one would expect to see major changes
             in.
           </p>
-          <p>
-            (1){" "}
-            <a
-              className="underline"
-              href="https://www.bls.gov/opub/btn/volume-11/retail-trade-employment-before-during-and-after-the-pandemic.htm#:~:text=The%20clothing%20stores%20industry%20accounted,began%20to%20work%20from%20home"
-            >
-              https://www.bls.gov/opub/btn/volume-11/retail-trade-employment-before-during-and-after-the-pandemic.htm#:~:text=The%20clothing%20stores%20industry%20accounted,began%20to%20work%20from%20home
-            </a>
-          </p>
-          <p>
-            (2){" "}
-            <a
-              className="underline"
-              href="https://www.forbes.com/sites/forbesbusinesscouncil/2022/05/18/how-has-the-pandemic-influenced-the-real-estate-industry/?sh=543a82a74243"
-            >
-              https://www.forbes.com/sites/forbesbusinesscouncil/2022/05/18/how-has-the-pandemic-influenced-the-real-estate-industry/?sh=543a82a74243
-            </a>
-          </p>
+          <ol className="list-decimal ml-4">
+            <li>
+              <a
+                className="underline"
+                href="https://www.bls.gov/opub/btn/volume-11/retail-trade-employment-before-during-and-after-the-pandemic.htm#:~:text=The%20clothing%20stores%20industry%20accounted,began%20to%20work%20from%20home"
+              >
+                https://www.bls.gov/opub/btn/volume-11/retail-trade-employment-before-during-and-after-the-pandemic.htm#:~:text=The%20clothing%20stores%20industry%20accounted,began%20to%20work%20from%20home
+              </a>
+            </li>
+            <li>
+              <a
+                className="underline"
+                href="https://www.forbes.com/sites/forbesbusinesscouncil/2022/05/18/how-has-the-pandemic-influenced-the-real-estate-industry/?sh=543a82a74243"
+              >
+                https://www.forbes.com/sites/forbesbusinesscouncil/2022/05/18/how-has-the-pandemic-influenced-the-real-estate-industry/?sh=543a82a74243
+              </a>
+            </li>
+          </ol>
         </div>
       </div>
     </main>
