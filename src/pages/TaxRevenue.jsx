@@ -32,20 +32,13 @@ export default function TaxRevenue() {
     <main className="flex flex-col gap-y-6">
       <h1 className="font-extrabold tracking-tight text-4xl">Tax Revenue</h1>
       <div className="flex flex-col gap-y-2">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-          corporis doloribus ducimus perferendis illum, quis molestias tempora
-          inventore nulla in quae laborum eum quam nostrum labore pariatur, eos
-          a sunt officia doloremque sit, voluptates sapiente expedita?
-          Explicabo, ullam, perferendis incidunt, eos sit et illo aliquid porro
-          neque quaerat iste! Praesentium, numquam placeat facilis nostrum
-          incidunt aliquam, ipsam deleniti aliquid blanditiis distinctio veniam
-          saepe voluptates dolor voluptas eos molestiae esse in molestias. Et
-          doloremque est exercitationem voluptatibus! Minima minus id ad, modi
-          esse accusantium adipisci consectetur eaque reprehenderit, omnis
-          cumque placeat accusamus quo natus ducimus vel culpa autem
-          repudiandae, odio vero?
-        </p>
+        <p>On this page, you can find information regarding the tax revenue in the U.S. during the time period 2009 to 2022 for each state. Each tax revenue is categorized into a specific Tax Category. With the use of the time period slider bar, state selection, and tax category filter, one can view two different graphs that relay tax revenue patterns given the criteria noted.</p>
+
+        <p>The line graph represents the percentage of total tax revenue in the U.S that category makes up and overlays this information with the number of Covid-19 cases in that given year per state. This allows one to see any changes that may appear in the total tax revenue per category as the increase in Covid-19 cases surges in the U.S.</p>
+
+        <p>The bar graph below, similarly, highlights the top 5 tax categories with the highest amount of tax revenue during the selected time period. This makes it easy to visualize what category make up most of the revenue during any given time period in terms of total tax revenue rather than percentage make-up.</p>
+
+        <p>These graphs provide insight into how Covid-19 has played a role in the evolving U.S economy and allows users to explore changes that occurred over time in each state. Some of the most significant findings are highlighted below.</p>
       </div>
 
       <div className="flex flex-col gap-y-2">
